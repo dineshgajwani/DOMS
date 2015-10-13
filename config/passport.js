@@ -34,12 +34,18 @@ module.exports = function(passport) {
         } else {
             var newUser = {
               username: username,
-              password: bcrypt.hashSync(password, null, null)
+              password: bcrypt.hashSync(password, null, null),
+              storename: req.body.storename,
+              storeemail: req.body.storeemail,
+              storephone: req.body.storephone,
+              storeaddress: req.body.storeaddress
             };
 
-            var insertUser = "INSERT INTO users ( username, password ) values (?,?)";
+            console.log(newUser);
+            var insertUser = "INSERT INTO users ( username, password, storename, storeemail, storephone, storeaddress) values (?,?,?,?,?,?)";
 
-            connection.query(insertUser, [newUser.username, newUser.password], function (err, rows) {
+            connection.query(insertUser, [newUser.username, newUser.password, newUser.storename, newUser.storeemail, newUser.storephone, newUser.storeaddress], function (err, rows) {
+              console.log(rows);
               newUser.id = rows.insertId;
               return done(null, newUser);
             });
