@@ -18,6 +18,7 @@ var details = require('./details');
 
 var connection = mysql.createConnection(details.connection);
 
+connection.query('DROP DATABASE ' + details.database);
 connection.query('CREATE DATABASE ' + details.database);
 
 connection.query('\
