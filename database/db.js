@@ -27,7 +27,7 @@ CREATE TABLE `' + details.database + '`.`' + details.users_table + '` ( \
     `username` VARCHAR(20) NOT NULL, \
     `password` CHAR(60) NOT NULL, \
     `storename` VARCHAR(50) NOT NULL, \
-    `storeemail` VARCHAR(20) NOT NULL, \
+    `storeemail` VARCHAR(50) NOT NULL, \
     `storephone` VARCHAR(10) NOT NULL, \
     `storeaddress` VARCHAR(50) NOT NULL, \
         PRIMARY KEY (`id`), \
