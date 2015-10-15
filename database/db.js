@@ -1,18 +1,3 @@
-// var knex = require('knex')({
-//   client: 'mysql',
-//   connection: {
-//     host: 'localhost',
-//     user: 'root',
-//     password: 'manchesterisred',
-//     database: 'doms',
-//     charset: 'UTF8_GENERAL_CI'
-//   }
-// });
-//
-// var bookshelf = require('bookshelf')(knex);
-//
-// module.exports = bookshelf;
-
 var mysql = require('mysql');
 var details = require('./details');
 
@@ -20,6 +5,8 @@ var connection = mysql.createConnection(details.connection);
 
 connection.query('DROP DATABASE ' + details.database);
 connection.query('CREATE DATABASE ' + details.database);
+
+console.log("Database Created");
 
 connection.query('\
 CREATE TABLE `' + details.database + '`.`' + details.users_table + '` ( \
@@ -35,6 +22,40 @@ CREATE TABLE `' + details.database + '`.`' + details.users_table + '` ( \
     UNIQUE INDEX `username_UNIQUE` (`username` ASC) \
 )');
 
-console.log("Database Created");
+console.log("Store Owner Table Created");
+
+connection.query('\
+CREATE TABLE `' + details.database + '`.`' + details.driver_table + '` ( \
+    `did` INT UNSIGNED NOT NULL AUTO_INCREMENT, \
+    `username` VARCHAR(20) NOT NULL  DEFAULT "abc", \
+    `password` CHAR(60) NOT NULL  DEFAULT "123", \
+    `name` VARCHAR(20) NOT NULL, \
+    `address` CHAR(60) NOT NULL, \
+    `email` VARCHAR(50) NOT NULL, \
+    `phone` VARCHAR(20) NOT NULL, \
+        PRIMARY KEY (`did`), \
+    UNIQUE INDEX `id_UNIQUE` (`did` ASC), \
+    UNIQUE INDEX `username_UNIQUE` (`username` ASC) \
+)');
+
+console.log("Driver Table Created");
+
+connection.query('CREATE TABLE `' + details.database + '`.`' + details.orders_table + '` (\
+    `oid` INT UNSIGNED NOT NULL AUTO_INCREMENT, \
+    `description` VARCHAR(20) NOT NULL, \
+    `status` CHAR(60) NOT NULL  DEFAULT "123", \
+    `tip` VARCHAR(20) NOT NULL, \
+    `feedback` VARCHAR(20) NOT NULL, \
+    `price` VARCHAR(20) NOT NULL, \
+    `date` TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP, \
+    `address` CHAR(60) NOT NULL, \
+    `did` INT UNSIGNED NOT NULL, \
+    `id` INT UNSIGNED NOT NULL , \
+    PRIMARY KEY (`oid`), \
+    FOREIGN KEY (`did`) REFERENCES doms.driver(did) ON DELETE CASCADE, \
+    FOREIGN KEY (`id`) REFERENCES doms.users(id) ON DELETE CASCADE)'
+);
+
+console.log("Order Table Created");
 
 connection.end();
