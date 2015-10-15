@@ -31,6 +31,11 @@ app.use(flash());
 
 app.use('/', require('./routes/userRouter.js'));
 
+//Add static directories
+app.use('/views/css', express.static(__dirname + "/views/css"));
+app.use('/views/images', express.static(__dirname + "/views/images"));
+app.use('/views/js', express.static(__dirname + "/views/js"));
+
 app.listen(port);
 
 console.log("Listening on port 8000");
