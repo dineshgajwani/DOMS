@@ -45,11 +45,11 @@ connection.query('CREATE TABLE `' + details.database + '`.`' + details.orders_ta
     `description` VARCHAR(20) NOT NULL, \
     `status` CHAR(60) NOT NULL  DEFAULT "123", \
     `tip` VARCHAR(20) NOT NULL, \
-    `feedback` VARCHAR(20) NOT NULL, \
+    `feedback` VARCHAR(20) NOT NULL DEFAULT "5", \
     `price` VARCHAR(20) NOT NULL, \
     `date` TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP, \
     `address` CHAR(60) NOT NULL, \
-    `did` INT UNSIGNED NOT NULL, \
+    `did` INT UNSIGNED , \
     `id` INT UNSIGNED NOT NULL , \
     PRIMARY KEY (`oid`), \
     FOREIGN KEY (`did`) REFERENCES doms.driver(did) ON DELETE CASCADE, \

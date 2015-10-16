@@ -29,7 +29,8 @@ app.use(passport.initialize());
 app.use(passport.session());
 app.use(flash());
 
-app.use('/', require('./routes/userRouter.js'));
+app.use('/', require('./routes/userRouter'));
+app.use('/profile', require('./routes/orderRouter'));
 
 app.listen(port);
 
