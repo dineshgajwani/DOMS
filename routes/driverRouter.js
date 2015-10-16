@@ -55,6 +55,10 @@ router.route('/drivers')
       });
     });
   });
+<<<<<<< HEAD
+=======
+
+>>>>>>> htmlForms
   router.route('/drivers/:id/delete')
   .get(function (req, res) {
     connection.query('DELETE FROM driver WHERE driver.did = ?', [req.params.id], function (err, rows) {
@@ -62,4 +66,12 @@ router.route('/drivers')
       res.redirect('/profile/drivers');
     });
   });
+
+
+  router.route('/newDriver')
+    .get(function (req, res) {
+      res.render('createdriver.ejs');
+    });
+
+
 module.exports = router;
