@@ -33,10 +33,10 @@ CREATE TABLE `' + details.database + '`.`' + details.driver_table + '` ( \
     `address` CHAR(60) NOT NULL, \
     `email` VARCHAR(50) NOT NULL, \
     `phone` VARCHAR(20) NOT NULL, \
-        PRIMARY KEY (`did`), \
-    UNIQUE INDEX `id_UNIQUE` (`did` ASC), \
-    UNIQUE INDEX `username_UNIQUE` (`username` ASC) \
-)');
+    `id` INT UNSIGNED, \
+    PRIMARY KEY (`did`), \
+    FOREIGN KEY (`id`) REFERENCES doms.users(id) ON DELETE CASCADE)'
+);
 
 console.log("Driver Table Created");
 
