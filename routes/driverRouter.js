@@ -46,7 +46,7 @@ router.route('/drivers')
   .get(function (req, res) {
     var id = req.params.id;
 
-    connection.query("SELECT * FROM driver WHERE driver.did = ? AND drivers.id = ?", [id, req.user.id], function (err, rows) {
+    connection.query("SELECT * FROM driver WHERE driver.did = ? AND driver.id = ?", [id, req.user.id], function (err, rows) {
       if(err) {throw err;}
 
       console.log(rows);
