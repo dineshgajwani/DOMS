@@ -17,10 +17,6 @@ function isLoggedIn(req, res, next) {
 
 router.use(isLoggedIn);
 
-<<<<<<< HEAD
-=======
-
->>>>>>> 75b66943c1fb6ed905cd99c74391c89cbfabff40
 router.route('/orders')
   .get(function (req, res) {
     var data;
@@ -28,7 +24,8 @@ router.route('/orders')
       if (err) {throw err;}
       data = rows;
       res.render('orders.ejs', {
-        data: data
+        data: data,
+        user: req.user
       });
       console.log(data);
       console.log("ALL ORDERS");
@@ -40,15 +37,16 @@ router.route('/orders')
       description: req.body.description,
       tip: req.body.tip,
       price: req.body.price,
+      address: req.body.address,
       id: req.user.id
     };
 
-    var insertOrder = "INSERT INTO orders ( description, tip, price, id) values (?,?,?,?)";
+    var insertOrder = "INSERT INTO orders ( description, tip, price, address, id) values (?,?,?,?,?)";
 
-    connection.query(insertOrder, [order.description, order.tip, order.price, order.id], function (err, rows) {
+    connection.query(insertOrder, [order.description, order.tip, order.price, order.address, order.id], function (err, rows) {
       if (err) {throw err;}
       console.log(rows);
-      norder.id = rows.insertId;
+      order.id = rows.insertId;
       res.redirect('/profile/orders');
     });
   });
@@ -74,5 +72,10 @@ router.route('/orders')
       res.redirect('/profile/orders');
     });
   });
+
+  router.route('/newOrder')
+    .get(function (req, res) {
+      res.render('createorder.ejs');
+    });
 
 module.exports = router;

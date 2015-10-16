@@ -31,6 +31,7 @@ app.use(flash());
 
 app.use('/', require('./routes/userRouter'));
 app.use('/profile', require('./routes/orderRouter'));
+app.use('/profile', require('./routes/driverRouter'));
 
 //Add static directories
 app.use('/views/css', express.static(__dirname + "/views/css"));
