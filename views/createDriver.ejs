@@ -15,13 +15,8 @@
 
     <h1><span class="fa fa-add-driver"></span> Add Driver</h1>
 
-    <!-- show any messages that come back with authentication -->
-    <% if (message.length > 0) { %>
-        <div class="alert alert-danger"><%= message %></div>
-    <% } %>
-
     <!-- LOGIN FORM -->
-    <form action="/addDriver" method="post">
+    <form action="./drivers" method="post">
         <div class="form-group">
             <label>Username</label>
             <input type="text" class="form-control" name="username">
@@ -46,12 +41,12 @@
             <label>Phone</label>
             <input type="text" class="form-control" name="phone">
         </div>
-        <button type="submit" class="btn btn-warning btn-lg">AddDriver</button>
+        <button type="submit" class="btn btn-warning btn-lg">Create</button>
     </form>
 
     <hr>
 
-    <p>Cancel <a href="/manageDrivers">Back to Manage Drivers</a></p>
+    <p>Cancel <a href="/drivers">Back to Manage Drivers</a></p>
     <p>Or go <a href="/">Home</a>.</p>
 
 </div>

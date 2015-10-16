@@ -67,7 +67,7 @@ router.route('/drivers')
 
   router.route('/newDriver')
     .get(function (req, res) {
-      res.render('createDriver.ejs');
+      res.render('createdriver.ejs');
     });
 
 
