@@ -35,14 +35,16 @@ router.route('/profile')
   });
 
 //Route manage drivers
-router.route('/adminManageDrivers')
+router.route('/manageDrivers')
   .get(isLoggedIn, function (req, res) {
-    res.render('adminManageDrivers.ejs', {
+    res.render('manageDrivers.ejs', {
       user: req.user
     });
   });
 
 
+
+// LOGOUT
 router.route('/logout')
   .get(function (req, res) {
     req.logout();

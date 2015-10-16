@@ -12,7 +12,7 @@
 <div class="container">
 
     <div class="page-header text-center">
-        <h1></span>  <%= user.storename %></h1>
+        <h1></span> Manage Drivers</h1>
         <a href="/logout" class="btn btn-default btn-sm">Logout</a>
     </div>
 
@@ -22,6 +22,7 @@
         <div class="col-sm-6">
             <div class="well">
                 <h3><span class="fa fa-user"></span> My Information</h3>
+
                     <p>
                       <strong>Store ID</strong>: <%= user.id %><br>
                       <strong>Username</strong>: <%= user.username %><br>
@@ -29,15 +30,28 @@
                       <strong>Store Email</strong>: <%= user.storeemail %><br>
                       <strong>Store Phone</strong>: <%= user.storephone %><br>
                       <strong>Store Address</strong>: <%= user.storeaddress %><br>
+
                     </p>
-                    <p> <a class="btn btn-default btn-lg" href="/manageDrivers">  Manage Drivers  </a>
-                    <a class="btn btn-default btn-lg" href="/orders">  Manage Orders  </a>
-                    <a class="btn btn-default btn-lg" href="/drivers">  Manage Stores </a></p>
-
-
 
             </div>
+            <!-- LOCAL INFORMATION -->
+
+            <div class="well">
+                <h3><span class="fa fa-user"></span> Your Drivers</h3>
+                    <% for (var i = 0; i < data.length; i++) { %>
+                    <p>
+                        <strong>Driver ID</strong>: <%= data[i].did %><br>
+                        <strong>Driver Name</strong>: <%= data[i].name %><br>
+                        <a href="./drivers/<%= data[i].did %>"> View Driver Information</a> <br>
+                        <a href="./drivers/<%= data[i].did %>/delete"> Delete driver</a>
+                    </p>
+                    <% } %>
+                  <p><a class="btn btn-default btn-lg" href="/createDriver">Add a Driver</a></p>
+            </div>
+
         </div>
+        <p><a href="/profile">Back to Profile</a></p>
+        <p>Or go <a href="/">Home</a>.</p>
 
     </div>
 
