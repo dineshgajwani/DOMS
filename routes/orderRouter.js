@@ -44,10 +44,7 @@ router.route('/orders')
     };
 
     var insertOrder = "INSERT INTO orders ( description, tip, price, id) values (?,?,?,?)";
-<<<<<<< HEAD
 
-=======
->>>>>>> 75b66943c1fb6ed905cd99c74391c89cbfabff40
     connection.query(insertOrder, [order.description, order.tip, order.price, order.id], function (err, rows) {
       if (err) {throw err;}
       console.log(rows);
