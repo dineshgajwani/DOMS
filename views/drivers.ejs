@@ -12,7 +12,7 @@
 <div class="container">
 
     <div class="page-header text-center">
-        <h1><span class="fa fa-anchor"></span> Drivers Page</h1>
+        <h1></span> Manage Drivers</h1>
         <a href="/logout" class="btn btn-default btn-sm">Logout</a>
     </div>
 
@@ -21,13 +21,13 @@
         <!-- LOCAL INFORMATION -->
         <div class="col-sm-6">
             <div class="well">
-                <h3><span class="fa fa-user"></span> Local</h3>
+                <h3><span class="fa fa-user"></span> Your Drivers</h3>
                     <% for (var i = 0; i < data.length; i++) { %>
                     <p>
-                        <strong>id</strong>: <%= data[i].did %><br>
-                        <strong>Name</strong>: <%= data[i].name %><br>
-                        <a href="./drivers/<%= data[i].did %>"> View Driver driver</a> <br>
-                        <a href="./drivers/<%= data[i].did %>/delete"> Delete driver</a>
+                        <strong>Driver ID</strong>: <%= data[i].did %><br>
+                        <strong>Driver Name</strong>: <%= data[i].name %><br>
+                        <a href="./drivers/<%= data[i].did %>"> View Driver Information</a> |
+                        <a href="./drivers/<%= data[i].did %>/delete"> Delete Driver</a>
                     </p>
                     <% } %>
 

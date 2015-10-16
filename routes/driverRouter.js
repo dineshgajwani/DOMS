@@ -63,4 +63,12 @@ router.route('/drivers')
       res.redirect('/profile/drivers');
     });
   });
+
+
+  router.route('/newDriver')
+    .get(function (req, res) {
+      res.render('createDriver.ejs');
+    });
+
+
 module.exports = router;
