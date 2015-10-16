@@ -1,0 +1,109 @@
+0 info it worked if it ends with ok
+1 verbose cli [ '/usr/local/bin/node', '/usr/local/bin/npm', 'install', '-g' ]
+2 info using npm@2.14.7
+3 info using node@v4.2.1
+4 verbose install initial load of /usr/local/lib/package.json
+5 verbose readDependencies loading dependencies from /usr/local/lib/package.json
+6 silly cache add args [ '.', null ]
+7 verbose cache add spec .
+8 silly cache add parsed spec Result {
+8 silly cache add   raw: '.',
+8 silly cache add   scope: null,
+8 silly cache add   name: null,
+8 silly cache add   rawSpec: '.',
+8 silly cache add   spec: '/Users/kunalgoyal/Desktop/CS307-DOMS',
+8 silly cache add   type: 'directory' }
+9 verbose addLocalDirectory /Users/kunalgoyal/.npm/doms/1.0.0/package.tgz not in flight; packing
+10 verbose tar pack [ '/Users/kunalgoyal/.npm/doms/1.0.0/package.tgz',
+10 verbose tar pack   '/Users/kunalgoyal/Desktop/CS307-DOMS' ]
+11 verbose tarball /Users/kunalgoyal/.npm/doms/1.0.0/package.tgz
+12 verbose folder /Users/kunalgoyal/Desktop/CS307-DOMS
+13 info prepublish doms@1.0.0
+14 verbose addLocalTarball adding from inside cache /Users/kunalgoyal/.npm/doms/1.0.0/package.tgz
+15 silly cache afterAdd doms@1.0.0
+16 verbose afterAdd /Users/kunalgoyal/.npm/doms/1.0.0/package/package.json not in flight; writing
+17 verbose afterAdd /Users/kunalgoyal/.npm/doms/1.0.0/package/package.json written
+18 silly install resolved [ { name: 'doms',
+18 silly install resolved     version: '1.0.0',
+18 silly install resolved     description: 'This is the DOMS system for our CS 307 project',
+18 silly install resolved     main: 'app.js',
+18 silly install resolved     scripts: { test: 'echo "Error: no test specified" && exit 1' },
+18 silly install resolved     repository:
+18 silly install resolved      { type: 'git',
+18 silly install resolved        url: 'git+https://github.com/hemildesai/CS307-DOMS.git' },
+18 silly install resolved     keywords: [ 'nodejs', 'express', 'mysql', 'passport', 'doms' ],
+18 silly install resolved     author: { name: 'team 15' },
+18 silly install resolved     license: 'ISC',
+18 silly install resolved     bugs: { url: 'https://github.com/hemildesai/CS307-DOMS/issues' },
+18 silly install resolved     homepage: 'https://github.com/hemildesai/CS307-DOMS#readme',
+18 silly install resolved     dependencies:
+18 silly install resolved      { 'bcrypt-nodejs': '0.0.3',
+18 silly install resolved        'body-parser': '^1.14.1',
+18 silly install resolved        bookshelf: '^0.8.2',
+18 silly install resolved        'connect-flash': '^0.1.1',
+18 silly install resolved        'cookie-parser': '^1.4.0',
+18 silly install resolved        ejs: '^2.3.4',
+18 silly install resolved        express: '^4.13.3',
+18 silly install resolved        'express-session': '^1.11.3',
+18 silly install resolved        faker: '^3.0.1',
+18 silly install resolved        knex: '^0.8.6',
+18 silly install resolved        morgan: '^1.6.1',
+18 silly install resolved        mysql: '^2.9.0',
+18 silly install resolved        passport: '^0.3.0',
+18 silly install resolved        'passport-local': '^1.0.0' },
+18 silly install resolved     readme: '# CS307-DOMS\n\nSteps to run:\n\n- Run "npm install"\n- Ensure that mysql server is running on your machine locally. \n- Update the mysql server details in database/details.js. Update the password according to the password you set.\n-  Run the script database/db.js by using the command "node database/db.js" once\n-  Run the app using the command \'node app\' and visit localhost:8000 on your browser.\n-  Currently we are using sequelPro for admin privileges.\n\n',
+18 silly install resolved     readmeFilename: 'README.md',
+18 silly install resolved     gitHead: '1740477f859a8a3151247fa83e62449f4b57e3dc',
+18 silly install resolved     _id: 'doms@1.0.0',
+18 silly install resolved     _shasum: 'e1525cb4ca56d31148a3025b577af12e59f09c18',
+18 silly install resolved     _from: '../../Users/kunalgoyal/Desktop/CS307-DOMS',
+18 silly install resolved     _resolved: 'file:../../Users/kunalgoyal/Desktop/CS307-DOMS' } ]
+19 info install doms@1.0.0 into /usr/local/lib
+20 info installOne doms@1.0.0
+21 verbose installOne of doms to /usr/local/lib not in flight; installing
+22 verbose lock using /Users/kunalgoyal/.npm/_locks/doms-316fb4db86025e31.lock for /usr/local/lib/node_modules/doms
+23 silly install write writing doms 1.0.0 to /usr/local/lib/node_modules/doms
+24 verbose unbuild lib/node_modules/doms
+25 info preuninstall doms@1.0.0
+26 info uninstall doms@1.0.0
+27 verbose unbuild rmStuff doms@1.0.0 from /usr/local/lib/node_modules
+28 info postuninstall doms@1.0.0
+29 silly gentlyRm /usr/local/lib/node_modules/doms is being purged from base /usr/local
+30 verbose gentlyRm don't care about contents; nuking /usr/local/lib/node_modules/doms
+31 silly vacuum-fs purging /usr/local/lib/node_modules/doms
+32 verbose unlock done using /Users/kunalgoyal/.npm/_locks/doms-316fb4db86025e31.lock for /usr/local/lib/node_modules/doms
+33 verbose stack Error: EACCES: permission denied, rmdir '/usr/local/lib/node_modules/doms'
+33 verbose stack     at Error (native)
+34 verbose cwd /Users/kunalgoyal/Desktop/CS307-DOMS
+35 error Darwin 14.0.0
+36 error argv "/usr/local/bin/node" "/usr/local/bin/npm" "install" "-g"
+37 error node v4.2.1
+38 error npm  v2.14.7
+39 error path /usr/local/lib/node_modules/doms
+40 error code EACCES
+41 error errno -13
+42 error syscall rmdir
+43 error Error: EACCES: permission denied, rmdir '/usr/local/lib/node_modules/doms'
+43 error     at Error (native)
+43 error  { [Error: EACCES: permission denied, rmdir '/usr/local/lib/node_modules/doms']
+43 error   errno: -13,
+43 error   code: 'EACCES',
+43 error   syscall: 'rmdir',
+43 error   path: '/usr/local/lib/node_modules/doms' }
+44 error Please try running this command again as root/Administrator.
+45 verbose exit [ -13, true ]
+46 verbose unbuild lib/node_modules/doms
+47 info preuninstall doms@1.0.0
+48 info uninstall doms@1.0.0
+49 verbose unbuild rmStuff doms@1.0.0 from /usr/local/lib/node_modules
+50 info postuninstall doms@1.0.0
+51 silly gentlyRm /usr/local/lib/node_modules/doms is being purged from base /usr/local
+52 verbose gentlyRm don't care about contents; nuking /usr/local/lib/node_modules/doms
+53 silly vacuum-fs purging /usr/local/lib/node_modules/doms
+54 error error rolling back Error: EACCES: permission denied, rmdir '/usr/local/lib/node_modules/doms'
+54 error error rolling back     at Error (native)
+54 error error rolling back  { [Error: EACCES: permission denied, rmdir '/usr/local/lib/node_modules/doms']
+54 error error rolling back   errno: -13,
+54 error error rolling back   code: 'EACCES',
+54 error error rolling back   syscall: 'rmdir',
+54 error error rolling back   path: '/usr/local/lib/node_modules/doms' }

@@ -38,11 +38,26 @@ router.route('/profile')
 router.route('/adminManageDrivers')
   .get(isLoggedIn, function (req, res) {
     res.render('adminManageDrivers.ejs', {
-      user: req.user
+      driver: driver.user
     });
   });
 
+  router.route('/editDrivers')
+    .get(isLoggedIn, function (req, res) {
+      res.render('editDrivers.ejs', {
+        driver: driver.user
+      });
+    });
 
+    router.route('/addDriver')
+      .get(isLoggedIn, function (req, res) {
+        res.render('addDriver.ejs', {
+          driver: driver.user
+        });
+      });
+
+
+// LOGOUT
 router.route('/logout')
   .get(function (req, res) {
     req.logout();
