@@ -53,9 +53,9 @@
 18 silly install resolved        'passport-local': '^1.0.0' },
 18 silly install resolved     readme: '# CS307-DOMS\n\nSteps to run:\n\n- Run "npm install"\n- Ensure that mysql server is running on your machine locally. \n- Update the mysql server details in database/details.js. Update the password according to the password you set.\n-  Run the script database/db.js by using the command "node database/db.js" once\n-  Run the app using the command \'node app\' and visit localhost:8000 on your browser.\n-  Currently we are using sequelPro for admin privileges.\n\n',
 18 silly install resolved     readmeFilename: 'README.md',
-18 silly install resolved     gitHead: '1740477f859a8a3151247fa83e62449f4b57e3dc',
+18 silly install resolved     gitHead: 'e20139bc58cc64c61bf57b6215f2004f78a7b58f',
 18 silly install resolved     _id: 'doms@1.0.0',
-18 silly install resolved     _shasum: 'e1525cb4ca56d31148a3025b577af12e59f09c18',
+18 silly install resolved     _shasum: '99128a56c676f863215c6db7bd4ec0f740645060',
 18 silly install resolved     _from: '../../Users/kunalgoyal/Desktop/CS307-DOMS',
 18 silly install resolved     _resolved: 'file:../../Users/kunalgoyal/Desktop/CS307-DOMS' } ]
 19 info install doms@1.0.0 into /usr/local/lib

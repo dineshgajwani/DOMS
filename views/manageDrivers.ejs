@@ -12,7 +12,7 @@
 <div class="container">
 
     <div class="page-header text-center">
-        <h1></span>  <%= user.storename %></h1>
+        <h1><span class="fa fa-anchor"></span> Manage Drivers</h1>
         <a href="/logout" class="btn btn-default btn-sm">Logout</a>
     </div>
 
@@ -21,7 +21,8 @@
         <!-- LOCAL INFORMATION -->
         <div class="col-sm-6">
             <div class="well">
-                <h3><span class="fa fa-user"></span> My Information</h3>
+                <h3><span class="fa fa-user"></span> Your Info</h3>
+
                     <p>
                       <strong>Store ID</strong>: <%= user.id %><br>
                       <strong>Username</strong>: <%= user.username %><br>
@@ -29,14 +30,25 @@
                       <strong>Store Email</strong>: <%= user.storeemail %><br>
                       <strong>Store Phone</strong>: <%= user.storephone %><br>
                       <strong>Store Address</strong>: <%= user.storeaddress %><br>
+
                     </p>
-                    <p> <a class="btn btn-default btn-lg" href="/adminManageDrivers">  Manage Drivers  </a>
-                    <a class="btn btn-default btn-lg" href="/orders">  Manage Orders  </a>
-                    <a class="btn btn-default btn-lg" href="/drivers">  Manage Stores </a></p>
-
-
 
             </div>
+            <!-- LOCAL INFORMATION -->
+
+            <div class="well">
+                <h3><span class="fa fa-user"></span> Your Drivers</h3>
+                    <% for (var i = 0; i < data.length; i++) { %>
+                    <p>
+                        <strong>Driver ID</strong>: <%= data[i].did %><br>
+                        <strong>Driver Name</strong>: <%= data[i].name %><br>
+                        <a href="./drivers/<%= data[i].did %>"> View Driver Information</a> <br>
+                        <a href="./drivers/<%= data[i].did %>/delete"> Delete driver</a>
+                    </p>
+                    <% } %>
+                  <p><a class="btn btn-default btn-lg" href="/addDriver">Add a Driver</a></p>
+            </div>
+
         </div>
 
     </div>

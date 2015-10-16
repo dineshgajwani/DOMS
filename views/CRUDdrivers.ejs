@@ -18,19 +18,18 @@
             <th>Phone</th>
         </tr>
 
-        <% if(driver.length){
-
-         for(var i = 0;i < driver.length;i++) { %>
+        <% if(data.length){
+         for(var i = 0;i < data.length;i++) { %>
 
         <tr>
             <td><%=(i+1)%></td>
-            <td><%=driver[i].name%></td>
-            <td><%=driver[i].email%></td>
-            <td><%=driver[i].password%></td>
+            <td><%=data[i].name%></td>
+            <td><%=data[i].email%></td>
+            <td><%=data[i].password%></td>
             <td>
-                <a class="a-inside edit" href="/api/user/<%=driver[i].did%>">Edit</a>
+                <a class="a-inside edit" href="/api/user/<%=data[i].did%>">Edit</a>
 
-                <a class="a-inside delete" href="javascript:void(0)" onClick="deleteUser(<%=driver[i].did%>)">Delete</a>
+                <a class="a-inside delete" href="javascript:void(0)" onClick="deleteUser(<%=data[i].did%>)">Delete</a>
 
             </td>
         </tr>
