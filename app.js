@@ -31,7 +31,7 @@ app.use(flash());
 
 app.use('/', require('./routes/userRouter'));
 app.use('/profile', require('./routes/orderRouter'));
-
+app.use('/profile', require('./routes/driverRouter'));
 app.listen(port);
 
 console.log("Listening on port 8000");

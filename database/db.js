@@ -11,7 +11,7 @@ console.log("Database Created");
 connection.query('\
 CREATE TABLE `' + details.database + '`.`' + details.users_table + '` ( \
     `id` INT UNSIGNED NOT NULL AUTO_INCREMENT, \
-    `username` VARCHAR(20) NOT NULL, \
+    `username` VARCHAR(40) NOT NULL, \
     `password` CHAR(60) NOT NULL, \
     `storename` VARCHAR(50) NOT NULL, \
     `storeemail` VARCHAR(50) NOT NULL, \
@@ -27,12 +27,12 @@ console.log("Store Owner Table Created");
 connection.query('\
 CREATE TABLE `' + details.database + '`.`' + details.driver_table + '` ( \
     `did` INT UNSIGNED NOT NULL AUTO_INCREMENT, \
-    `username` VARCHAR(20) NOT NULL  DEFAULT "abc", \
+    `username` VARCHAR(40) NOT NULL  DEFAULT "abc", \
     `password` CHAR(60) NOT NULL  DEFAULT "123", \
-    `name` VARCHAR(20) NOT NULL, \
+    `name` VARCHAR(40) NOT NULL, \
     `address` CHAR(60) NOT NULL, \
     `email` VARCHAR(50) NOT NULL, \
-    `phone` VARCHAR(20) NOT NULL, \
+    `phone` VARCHAR(40) NOT NULL, \
     `id` INT UNSIGNED, \
     PRIMARY KEY (`did`), \
     FOREIGN KEY (`id`) REFERENCES doms.users(id) ON DELETE CASCADE)'
@@ -42,11 +42,11 @@ console.log("Driver Table Created");
 
 connection.query('CREATE TABLE `' + details.database + '`.`' + details.orders_table + '` (\
     `oid` INT UNSIGNED NOT NULL AUTO_INCREMENT, \
-    `description` VARCHAR(20) NOT NULL, \
+    `description` VARCHAR(40) NOT NULL, \
     `status` CHAR(60) NOT NULL  DEFAULT "123", \
-    `tip` VARCHAR(20) NOT NULL, \
-    `feedback` VARCHAR(20) NOT NULL DEFAULT "5", \
-    `price` VARCHAR(20) NOT NULL, \
+    `tip` VARCHAR(40) NOT NULL, \
+    `feedback` VARCHAR(40) NOT NULL DEFAULT "5", \
+    `price` VARCHAR(40) NOT NULL, \
     `date` TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP, \
     `address` CHAR(60) NOT NULL, \
     `did` INT UNSIGNED , \
