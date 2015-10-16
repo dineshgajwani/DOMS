@@ -12,7 +12,7 @@
 <div class="container">
 
     <div class="page-header text-center">
-        <h1><span class="fa fa-anchor"></span> Profile Page</h1>
+        <h1><span class="fa fa-anchor"></span> Manage Drivers</h1>
         <a href="/logout" class="btn btn-default btn-sm">Logout</a>
     </div>
 
@@ -21,7 +21,22 @@
         <!-- LOCAL INFORMATION -->
         <div class="col-sm-6">
             <div class="well">
-                <h3><span class="fa fa-user"></span> Local</h3>
+                <h3><span class="fa fa-user"></span> Your Info</h3>
+
+                    <p>
+                        <strong>id</strong>: <%= user.id %><br>
+                        <strong>email</strong>: <%= user.username %><br>
+                        <strong>password</strong>: <%= user.password %><br>
+                        <strong>store name</strong>: <%= user.storename %><br>
+                        <strong>store email</strong>: <%= user.storeemail %><br>
+                        <strong>store phone</strong>: <%= user.storephone %><br>
+                        <strong>store address</strong>: <%= user.storeaddress %><br>
+
+                    </p>
+
+            </div>
+            <div class="well">
+                <h3><span class="fa fa-user"></span> Your Drivers</h3>
 
                     <p>
                         <strong>id</strong>: <%= user.id %><br>
