@@ -33,10 +33,12 @@ app.use('/', require('./routes/userRouter'));
 app.use('/profile', require('./routes/orderRouter'));
 app.use('/profile', require('./routes/driverRouter'));
 
+
 //Add static directories
 app.use('/views/css', express.static(__dirname + "/views/css"));
 app.use('/views/images', express.static(__dirname + "/views/images"));
 app.use('/views/js', express.static(__dirname + "/views/js"));
+
 
 app.listen(port);
 

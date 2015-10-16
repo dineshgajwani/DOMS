@@ -28,12 +28,13 @@ for (var i = 0; i < 10; i++) {
   driver.email = faker.internet.email();
   driver.phone = faker.phone.phoneNumber();
   driver.phone = driver.phone.substring(0,11).replace(/[^0-9]/g, "");
+  driver.id = 1;
 
   users.push(newUser);
   //console.log(newUser);
 
   var insertUser = "INSERT INTO users ( username, password, storename, storeemail, storephone, storeaddress) values (?,?,?,?,?,?)";
-  var insertDriver = "INSERT INTO driver (username, password, name, address, email, phone) values (?,?,?,?,?,?)";
+  var insertDriver = "INSERT INTO driver (username, password, name, address, email, phone, id) values (?,?,?,?,?,?,?)";
 
   connection.query(insertUser, [newUser.username, newUser.password, newUser.storename, newUser.storeemail, newUser.storephone, newUser.storeaddress], function (err, rows) {
     if (err) {console.log(err);}
@@ -42,7 +43,7 @@ for (var i = 0; i < 10; i++) {
     //return done(null, newUser);
   });
 
-  connection.query(insertDriver, [driver.username, driver.password, driver.name, driver.address, driver.email, driver.phone], function (err, rows) {
+  connection.query(insertDriver, [driver.username, driver.password, driver.name, driver.address, driver.email, driver.phone, driver.id], function (err, rows) {
     if(err) {throw err;}
   })
 }

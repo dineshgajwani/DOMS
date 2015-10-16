@@ -55,7 +55,8 @@ router.route('/drivers')
       });
     });
   });
-  router.route('/drivers/:id/delete')
+
+  router.route('/driverss/:id/delete')
   .get(function (req, res) {
     connection.query('DELETE FROM driver WHERE driver.did = ?', [req.params.id], function (err, rows) {
       if(err) {throw err;}
