@@ -13,7 +13,7 @@
 
 <div class="col-sm-6 col-sm-offset-3">
 
-    <h1><span class="fa fa-sign-in"></span> Signup</h1>
+    <h2><span class="fa fa-sign-in"></span> Create New Order</h2>
 
     <!-- show any messages that come back with authentication -->
     <% if (message.length > 0) { %>
@@ -21,38 +21,30 @@
     <% } %>
 
     <!-- LOGIN FORM -->
-    <form action="/signup" method="post">
+    <form action="/insertOrder" method="post">
         <div class="form-group">
-            <label>Username</label>
-            <input type="text" class="form-control" name="username">
+            <label>Order Description</label>
+            <input type="text" class="form-control" name="description">
         </div>
         <div class="form-group">
-            <label>Password</label>
-            <input type="password" class="form-control" name="password">
+            <label>Tip</label>
+            <input type="text" class="form-control" name="Tip">
         </div>
         <div class="form-group">
-            <label>Store Name</label>
-            <input type="text" class="form-control" name="storename">
+            <label>Price</label>
+            <input type="text" class="form-control" name="Price">
         </div>
         <div class="form-group">
-            <label>Store Email</label>
-            <input type="text" class="form-control" name="storeemail">
+            <label>Address</label>
+            <input type="text" class="form-control" name="Address">
         </div>
-        <div class="form-group">
-            <label>Store Phone</label>
-            <input type="text" class="form-control" name="storephone">
-        </div>
-        <div class="form-group">
-            <label>Store Address</label>
-            <input type="text" class="form-control" name="storeaddress">
-        </div>
-        <button type="submit" class="btn btn-warning btn-lg">Signup</button>
+        <button type="submit" class="btn btn-warning btn-lg">Create</button>
     </form>
 
     <hr>
 
-    <p>Already have an account? <a href="/login">Login</a></p>
-    <p>Or go <a href="/">home</a>.</p>
+    <p>Cancel <a href="/manageOrders">Back to Manage Orders</a></p>
+    <p>Or go <a href="/">Home</a>.</p>
 
 </div>
 

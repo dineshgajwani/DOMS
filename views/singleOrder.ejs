@@ -22,15 +22,16 @@
         <div class="col-sm-6">
             <div class="well">
                 <h3><span class="fa fa-user"></span> Local</h3>
-                    <% for (var i = 0; i < data.length; i++) { %>
-                    <p>
-                        <strong>id</strong>: <%= data[i].oid %><br>
-                        <strong>description</strong>: <%= data[i].description %><br>
-                        <a href="./orders/<%= data[i].oid %>"> View order</a> <br>
-                        <a href="./orders/<%= data[i].oid %>/delete"> Delete order</a>
-                    </p>
-                    <% } %>
 
+                    <p>
+                        <strong>id</strong>: <%= order.oid %><br>
+                        <strong>description</strong>: <%= order.description %><br>
+                        <strong>status</strong>: <%= order.status %><br>
+                        <strong>tip</strong>: <%= order.tip %><br>
+                        <strong>price</strong>: <%= order.price %><br>
+                        <strong>feedback</strong>: <%= order.feedback %><br>
+                    </p>
+                    <p><a class="btn btn-default btn-lg" href="/manageOrders">Back to Manage Orders</a></p>
             </div>
         </div>
 

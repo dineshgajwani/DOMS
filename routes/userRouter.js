@@ -35,26 +35,13 @@ router.route('/profile')
   });
 
 //Route manage drivers
-router.route('/adminManageDrivers')
+router.route('/manageDrivers')
   .get(isLoggedIn, function (req, res) {
-    res.render('adminManageDrivers.ejs', {
+    res.render('manageDrivers.ejs', {
       user: req.user
     });
   });
 
-  router.route('/editDrivers')
-    .get(isLoggedIn, function (req, res) {
-      res.render('editDrivers.ejs', {
-        user: req.user
-      });
-    });
-
-    router.route('/addDriver')
-      .get(isLoggedIn, function (req, res) {
-        res.render('addDriver.ejs', {
-          user: req.user
-        });
-      });
 
 
 // LOGOUT
