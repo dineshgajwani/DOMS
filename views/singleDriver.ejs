@@ -12,7 +12,9 @@
 <div class="container">
 
     <div class="page-header text-center">
-        <h1><span class="fa fa-anchor"></span> Orders Page</h1>
+
+        <h1></span> Driver Information</h1>
+
         <a href="/logout" class="btn btn-default btn-sm">Logout</a>
     </div>
 
@@ -21,10 +23,13 @@
         <!-- LOCAL INFORMATION -->
         <div class="col-sm-6">
             <div class="well">
-                <h3><span class="fa fa-user"></span> Local</h3>
+
+                <h3><span class="fa fa-user"></span> <%= driver.name %></h3>
 
                     <p>
-                        <strong>id</strong>: <%= driver.did %><br>
+                        <strong>Driver ID</strong>: <%= driver.did %><br>
+
+
                         <strong>Username</strong>: <%= driver.username %><br>
                         <strong>Password</strong>: <%= driver.password %><br>
                         <strong>Name</strong>: <%= driver.name %><br>
@@ -35,6 +40,10 @@
                     </p>
 
             </div>
+            <h4>
+
+          <!--  <p><a href="/drivers">Back to Drivers</a></p>-->
+            <p>Go <a href="/">Home</a>.</p></h4>
         </div>
 
     </div>

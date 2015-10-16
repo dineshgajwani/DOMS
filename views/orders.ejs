@@ -12,7 +12,7 @@
 <div class="container">
 
     <div class="page-header text-center">
-        <h1><span class="fa fa-anchor"></span> Orders Page</h1>
+        <h1></span> Manage Orders</h1>
         <a href="/logout" class="btn btn-default btn-sm">Logout</a>
     </div>
 
@@ -21,17 +21,20 @@
         <!-- LOCAL INFORMATION -->
         <div class="col-sm-6">
             <div class="well">
-                <h3><span class="fa fa-user"></span> Local</h3>
+                <h3><span class="fa fa-user"></span> Your Orders</h3>
                     <% for (var i = 0; i < data.length; i++) { %>
                     <p>
-                        <strong>id</strong>: <%= data[i].oid %><br>
-                        <strong>description</strong>: <%= data[i].description %><br>
-                        <a href="./orders/<%= data[i].oid %>"> View order</a> <br>
-                        <a href="./orders/<%= data[i].oid %>/delete"> Delete order</a>
+                        <strong>Order ID</strong>: <%= data[i].oid %><br>
+                        <strong>Order Description</strong>: <%= data[i].description %><br>
+                        <a href="./orders/<%= data[i].oid %>"> View order    </a>      |
+                        <a href="./orders/<%= data[i].oid %>/delete"> Delete order   </a>
                     </p>
                     <% } %>
 
             </div>
+            <h3><a href="./newOrder">Create new order</a></h3>
+            <p><a href="/profile">Back to Profile</a></p>
+            <p>Or go <a href="/">Home</a>.</p>
         </div>
 
     </div>
