@@ -20,7 +20,7 @@ router.use(isLoggedIn);
 router.route('/drivers')
   .get(function (req, res) {
     var data;
-    connection.query('SELECT * FROM driver WHERE driver.id = ? ',[req.user.id], function (err, rows) {
+    connection.query('SELECT * FROM drivers WHERE drivers.id = ? ',[req.user.id], function (err, rows) {
       if (err) {throw err;}
       data = rows;
       res.render('drivers.ejs', {
@@ -46,7 +46,7 @@ router.route('/drivers')
   .get(function (req, res) {
     var id = req.params.id;
 
-    connection.query("SELECT * FROM driver WHERE driver.did = ? AND driver.id = ?", [id, req.user.id], function (err, rows) {
+    connection.query("SELECT * FROM drivers WHERE drivers.did = ? AND drivers.id = ?", [id, req.user.id], function (err, rows) {
       if(err) {throw err;}
 
       console.log(rows);
@@ -55,7 +55,7 @@ router.route('/drivers')
       });
     });
   });
-  router.route('/driverss/:id/delete')
+  router.route('/drivers/:id/delete')
   .get(function (req, res) {
     connection.query('DELETE FROM driver WHERE driver.did = ?', [req.params.id], function (err, rows) {
       if(err) {throw err;}

@@ -34,7 +34,7 @@ for (var i = 0; i < 10; i++) {
   //console.log(newUser);
 
   var insertUser = "INSERT INTO users ( username, password, storename, storeemail, storephone, storeaddress) values (?,?,?,?,?,?)";
-  var insertDriver = "INSERT INTO driver (username, password, name, address, email, phone, id) values (?,?,?,?,?,?,?)";
+  var insertDriver = "INSERT INTO drivers (username, password, name, address, email, phone, id) values (?,?,?,?,?,?,?)";
 
   connection.query(insertUser, [newUser.username, newUser.password, newUser.storename, newUser.storeemail, newUser.storephone, newUser.storeaddress], function (err, rows) {
     if (err) {console.log(err);}
