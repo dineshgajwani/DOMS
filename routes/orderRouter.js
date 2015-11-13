@@ -76,6 +76,19 @@ router.route('/orders')
     });
   });
 
+  router.route("/unassigned")
+  .get(function (req, res) {
+    var data;
+    connection.query('SELECT * FROM orders WHERE orders.id = ? AND orders.did IS NULL',[req.user.id], function (err, rows) {
+      if (err) {throw err;}
+      data = rows;
+      res.render('orders.ejs', {
+        data: data,
+        user: req.user
+      });
+    });
+  });
+
   router.route('/orders/:id/delete')
   .get(function (req, res) {
     connection.query('DELETE FROM orders WHERE orders.oid = ?', [req.params.id], function (err, rows) {

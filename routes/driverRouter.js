@@ -43,6 +43,19 @@ router.route('/drivers')
     };
   });
 
+
+router.route('/available')
+  .get(function (req, res) {
+    var data;
+    connection.query('SELECT * FROM drivers WHERE drivers.id = ? AND drivers.status = 2',[req.user.id], function (err, rows) {
+      if (err) {throw err;}
+      data = rows;
+      res.render('drivers.ejs', {
+        data: data
+      });
+    });
+  });
+
   router.route('/drivers/:id')
   .get(function (req, res) {
     var id = req.params.id;

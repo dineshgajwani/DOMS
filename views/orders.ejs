@@ -26,8 +26,8 @@
                     <p>
                         <strong>Order ID</strong>: <%= data[i].oid %><br>
                         <strong>Order Description</strong>: <%= data[i].description %><br>
-                        <a href="./<%= data[i].oid %>"> View order    </a>      |
-                        <a href="./<%= data[i].oid %>/delete"> Delete order   </a>
+                        <a href="/profile/orders/<%= data[i].oid %>"> View order    </a>      |
+                        <a href="/profile/orders/<%= data[i].oid %>/delete"> Delete order   </a>
                     </p>
                     <% } %>
 
