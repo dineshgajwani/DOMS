@@ -3,7 +3,7 @@ var router = express.Router();
 var passport = require('passport');
 
 router.route('/')
-  .get(function (req, res) {
+  .get(rootAuthentication, function (req, res) {
     res.render('index.ejs');
   });
 
@@ -42,7 +42,22 @@ router.route('/manageDrivers')
     });
   });
 
+  router.route('/driverlogin')
+    .get(function (req, res) {
+      res.render('login.ejs', {message: req.flash('loginMessage')});
+    })
+    .post(passport.authenticate('local-driverLogin', {
+      successRedirect: '/driverProfile',
+      failureRedirect: '/login',
+      failureFlash: true
+    }));
 
+  router.route('/driverProfile')
+    .get(isLoggedIn, function (req, res) {
+      res.render('driverProfile.ejs', {
+        user: req.user
+      });
+    });
 
 // LOGOUT
 router.route('/logout')
@@ -56,6 +71,13 @@ function isLoggedIn(req, res, next) {
     return next();
   }
   res.redirect('/');
+}
+
+function rootAuthentication (req, res, next) {
+  if(req.isAuthenticated()) {
+    res.redirect('/profile');
+  }
+  next();
 }
 
 module.exports = router;

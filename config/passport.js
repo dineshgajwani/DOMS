@@ -74,4 +74,59 @@ module.exports = function(passport) {
         });
       }
     ));
+
+    passport.use('local-driverLogin',
+      new LocalStartegy({
+        usernameField: 'username',
+        passwordField: 'password',
+        passReqToCallback: true
+      },
+      function (req, username, password, done) {
+        connection.query("SELECT * FROM drivers WHERE username = ?",[username], function (err, rows) {
+          if(err) {return done(err);}
+          if(!rows.length) {
+            return done(null, false, req.flash('loginMessage', 'No user found'));
+          }
+
+          if(!bcrypt.compareSync(password, rows[0].password)) {
+            return done(null, false, req.flash('loginMessage', 'Password incorrect'));
+          }
+
+          return done(null, rows[0]);
+        });
+      }
+    ));
+
+    passport.use('local-addDriver',
+      new LocalStartegy({
+        usernameField: 'username',
+        passwordField: 'password',
+        passReqToCallback: true
+      },
+      function (req, username, password, done) {
+        connection.query("SELECT * FROM driver WHERE username = ?",[username], function (err, rows) {
+          if (err) { return done(err);}
+          if (rows.length) {
+            return done(null, false, req.flash('addDriverMessage', 'The driver already exists'));
+          } else {
+              var newUser = {
+                username: username,
+                password: bcrypt.hashSync(password, null, null),
+                drivername: req.body.drivername,
+                driveremail: req.body.driveremail,
+                driverphone: req.body.driverphone,
+                driveraddress: req.body.driveraddress
+              };
+
+              console.log(newUser);
+              var insertUser = "INSERT INTO driver ( username, password, name, email, phone, address) values (?,?,?,?,?,?)";
+
+              connection.query(insertUser, [newUser.username, newUser.password, newUser.drivername, newUser.driveremail, newUser.driverphone, newUser.driveraddress], function (err, rows) {
+                console.log(rows);
+                newUser.id = rows.insertId;
+                return done(null, newUser);
+              });
+          }
+        });
+      }));
 };
