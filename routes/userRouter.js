@@ -34,6 +34,17 @@ router.route('/profile')
     });
   });
 
+//Route manage drivers
+router.route('/manageDrivers')
+  .get(isLoggedIn, function (req, res) {
+    res.render('manageDrivers.ejs', {
+      user: req.user
+    });
+  });
+
+
+
+// LOGOUT
 router.route('/logout')
   .get(function (req, res) {
     req.logout();

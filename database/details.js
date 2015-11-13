@@ -7,5 +7,6 @@ module.exports = {
 	'database': 'doms',
     'users_table': 'users',
     'orders_table': 'orders',
-    'driver_table': 'drivers'
+    'driver_table': 'drivers',
+    'admin_table': 'admin'
 };

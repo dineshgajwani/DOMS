@@ -58,4 +58,14 @@ connection.query('CREATE TABLE `' + details.database + '`.`' + details.orders_ta
 
 console.log("Order Table Created");
 
+connection.query('CREATE TABLE `' + details.database + '`.`' + details.admin_table + '` (\
+    `aid` INT UNSIGNED NOT NULL AUTO_INCREMENT, \
+    `username` VARCHAR(40) NOT NULL  DEFAULT "abc", \
+    `password` CHAR(60) NOT NULL  DEFAULT "123", \
+    `name` VARCHAR(40) NOT NULL, \
+     PRIMARY KEY (`aid`))'
+);
+
+console.log("Admin Table Created");
+
 connection.end();
