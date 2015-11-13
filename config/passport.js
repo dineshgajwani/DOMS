@@ -11,12 +11,19 @@ connection.query('USE ' + details.database);
 module.exports = function(passport) {
 
   passport.serializeUser(function (user, done) {
-    done(null, user.id);
+    done(null, user.username);
   });
 
-  passport.deserializeUser(function (id, done) {
-    connection.query("SELECT * FROM users WHERE id = ? ",[id], function (err, rows) {
-      done(err, rows[0]);
+  passport.deserializeUser(function (username, done) {
+    connection.query("SELECT * FROM users WHERE username = ? ",[username], function (err, rows) {
+      if(rows.length > 0) {
+        done(err, rows[0]);
+      } else {
+        connection.query("SELECT * FROM drivers WHERE username = ? ",[username], function (err, rows) {
+          done(err, rows[0]);
+        });
+      }
+
     });
   });
 
@@ -60,6 +67,7 @@ module.exports = function(passport) {
         passReqToCallback: true
       },
       function (req, username, password, done) {
+        console.log("normal login");
         connection.query("SELECT * FROM users WHERE username = ?",[username], function (err, rows) {
           if(err) {return done(err);}
           if(!rows.length) {
@@ -82,6 +90,7 @@ module.exports = function(passport) {
         passReqToCallback: true
       },
       function (req, username, password, done) {
+        console.log("driver login");
         connection.query("SELECT * FROM drivers WHERE username = ?",[username], function (err, rows) {
           if(err) {return done(err);}
           if(!rows.length) {

@@ -42,22 +42,22 @@ router.route('/manageDrivers')
     });
   });
 
-  router.route('/driverlogin')
-    .get(function (req, res) {
-      res.render('login.ejs', {message: req.flash('loginMessage')});
-    })
-    .post(passport.authenticate('local-driverLogin', {
-      successRedirect: '/driverProfile',
-      failureRedirect: '/login',
-      failureFlash: true
-    }));
+router.route('/driverlogin')
+  .get(function (req, res) {
+    res.render('driverLogin.ejs', {message: req.flash('loginMessage')});
+  })
+  .post(passport.authenticate('local-driverLogin', {
+    successRedirect: '/driverProfile',
+    failureRedirect: '/driverlogin',
+    failureFlash: true
+  }));
 
-  router.route('/driverProfile')
-    .get(isLoggedIn, function (req, res) {
-      res.render('driverProfile.ejs', {
-        user: req.user
-      });
+router.route('/driverProfile')
+  .get(isLoggedIn, function (req, res) {
+    res.render('driverProfile.ejs', {
+      user: req.user
     });
+  });
 
 // LOGOUT
 router.route('/logout')
