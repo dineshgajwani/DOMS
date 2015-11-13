@@ -1,6 +1,12 @@
 var express = require('express');
 var router = express.Router();
 var passport = require('passport');
+var mysql = require('mysql');
+var details = require('../database/details');
+
+var connection = mysql.createConnection(details.connection);
+
+connection.query('USE ' + details.database);
 
 router.route('/')
   .get(rootAuthentication, function (req, res) {
@@ -29,8 +35,15 @@ router.route('/signup')
 
 router.route('/profile')
   .get(isLoggedIn, function (req, res) {
-    res.render('profile.ejs', {
-      user: req.user
+    var orders;
+    connection.query('SELECT * FROM orders WHERE orders.id = ? AND orders.did IS NOT NULL',[req.user.id], function (err, rows) {
+      if (err) {throw err;}
+      orders = rows;
+      console.log(orders);
+      res.render('profile.ejs', {
+        user: req.user,
+        orders: orders
+      });
     });
   });
 

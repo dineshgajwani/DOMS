@@ -22,20 +22,36 @@
         <div class="col-sm-6">
             <div class="well">
                 <h3><span class="fa fa-user"></span> My Information</h3>
+                <p>
+                    <strong>Store ID</strong>: <%= user.id %><br>
+                    <strong>Username</strong>: <%= user.username %><br>
+                    <strong>Store Name</strong>: <%= user.storename %><br>
+                    <strong>Store Email</strong>: <%= user.storeemail %><br>
+                    <strong>Store Phone</strong>: <%= user.storephone %><br>
+                    <strong>Store Address</strong>: <%= user.storeaddress %><br>
+                </p>
+                <p> <a class="btn btn-default btn-lg" href="profile/drivers">  Manage Drivers  </a>
+                    <a class="btn btn-default btn-lg" href="profile/orders">  Manage Orders  </a>
+                </p>
+            </div>
+
+        </div>
+
+    </div>
+
+    <div class="row">
+
+        <!-- LOCAL INFORMATION -->
+        <div class="col-sm-6">
+            <div class="well">
+                <h3><span class="fa fa-user"></span> Assigned Orders</h3>
+                    <% for (var i = 0; i < orders.length; i++) { %>
                     <p>
-                      <strong>Store ID</strong>: <%= user.id %><br>
-                      <strong>Username</strong>: <%= user.username %><br>
-                      <strong>Store Name</strong>: <%= user.storename %><br>
-                      <strong>Store Email</strong>: <%= user.storeemail %><br>
-                      <strong>Store Phone</strong>: <%= user.storephone %><br>
-                      <strong>Store Address</strong>: <%= user.storeaddress %><br>
+                        <strong>Order ID</strong>: <a href="./profile/orders/<%= orders[i].oid %>"> <%= orders[i].oid %> </a><br>
+                        <strong>Order Description</strong>: <%= orders[i].description %><br>
+                        <strong>Driver ID</strong>: <a href="./profile/drivers/<%= orders[i].did %>"> <%= orders[i].did %> </a>
                     </p>
-                    <p> <a class="btn btn-default btn-lg" href="./profile/drivers">  Manage Drivers  </a>
-                    <a class="btn btn-default btn-lg" href="./profile/orders">  Manage Orders  </a>
-                    <!-- <a class="btn btn-default btn-lg" href="/drivers">  Manage Stores </a></p> -->
-
-
-
+                    <% } %>
             </div>
 
         </div>

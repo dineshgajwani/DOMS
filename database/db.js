@@ -33,6 +33,7 @@ CREATE TABLE `' + details.database + '`.`' + details.driver_table + '` ( \
     `address` CHAR(60) NOT NULL, \
     `email` VARCHAR(50) NOT NULL, \
     `phone` VARCHAR(40) NOT NULL, \
+    `status` INT DEFAULT 2, \
     `id` INT UNSIGNED, \
     PRIMARY KEY (`did`), \
     FOREIGN KEY (`id`) REFERENCES doms.users(id) ON DELETE CASCADE)'
@@ -52,20 +53,20 @@ connection.query('CREATE TABLE `' + details.database + '`.`' + details.orders_ta
     `did` INT UNSIGNED , \
     `id` INT UNSIGNED NOT NULL , \
     PRIMARY KEY (`oid`), \
-    FOREIGN KEY (`did`) REFERENCES doms.driver(did) ON DELETE CASCADE, \
+    FOREIGN KEY (`did`) REFERENCES doms.drivers(did) ON DELETE CASCADE, \
     FOREIGN KEY (`id`) REFERENCES doms.users(id) ON DELETE CASCADE)'
 );
 
-console.log("Order Table Created");
+// console.log("Order Table Created");
 
-connection.query('CREATE TABLE `' + details.database + '`.`' + details.admin_table + '` (\
-    `aid` INT UNSIGNED NOT NULL AUTO_INCREMENT, \
-    `username` VARCHAR(40) NOT NULL  DEFAULT "abc", \
-    `password` CHAR(60) NOT NULL  DEFAULT "123", \
-    `name` VARCHAR(40) NOT NULL, \
-     PRIMARY KEY (`aid`))'
-);
+// connection.query('CREATE TABLE `' + details.database + '`.`' + details.admin_table + '` (\
+//     `aid` INT UNSIGNED NOT NULL AUTO_INCREMENT, \
+//     `username` VARCHAR(40) NOT NULL  DEFAULT "abc", \
+//     `password` CHAR(60) NOT NULL  DEFAULT "123", \
+//     `name` VARCHAR(40) NOT NULL, \
+//      PRIMARY KEY (`aid`))'
+// );
 
-console.log("Admin Table Created");
+// console.log("Admin Table Created");
 
 connection.end();

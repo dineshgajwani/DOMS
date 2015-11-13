@@ -46,7 +46,18 @@ router.route('/orders')
     connection.query(insertOrder, [order.description, order.tip, order.price, order.address, order.id], function (err, rows) {
       if (err) {throw err;}
       console.log(rows);
-      order.id = rows.insertId;
+      order.oid = rows.insertId;
+
+      var assignment = "UPDATE orders SET orders.did = (SELECT did from drivers JOIN users on drivers.id = users.id WHERE drivers.status = 2 AND drivers.id = ? LIMIT 1) WHERE orders.oid = ?";
+      var driverStatus = "UPDATE drivers SET drivers.status = 1 WHERE drivers.did = (SELECT orders.did FROM orders WHERE orders.oid = ?)";
+      connection.query(assignment, [order.id, order.oid], function (err, rows) {
+        if(err) {throw err;}
+        console.log("success");
+      });
+      connection.query(driverStatus, [order.oid], function (err, rows) {
+        if (err) {throw err;}
+        console.log("driver status changed");
+      });
       res.redirect('/profile/orders');
     });
   });
