@@ -1,25 +1,18 @@
 <!doctype html>
 <html>
-<head>
-    <title>DOMS</title>
-    <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.2/css/bootstrap.min.css">
-    <link rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.min.css">
-    <style>
-        body        { padding-top:80px; word-wrap:break-word; }
-    </style>
-</head>
+<% include ./partials/head %>
 <body>
+<% include ./partials/navbar %>
 <div class="container">
 
     <div class="page-header text-center">
         <h1><span class="fa fa-anchor"></span> Order Information</h1>
-        <a href="/logout" class="btn btn-default btn-sm">Logout</a>
     </div>
 
     <div class="row">
 
         <!-- LOCAL INFORMATION -->
-        <div class="col-sm-6">
+        <div class="col-sm-6 col-sm-offset-3">
             <div class="well">
                 <h3><span class="fa fa-user"></span></h3>
 
@@ -36,9 +29,8 @@
                     <!-- <p><a class="btn btn-default btn-lg" href="/manageOrders">Back to Manage Orders</a></p> -->
 
             </div>
-            <h4>
-            <p><a href="./">Back to Orders</a></p>
-            <p>Or go <a href="/">Home</a>.</p></h4>
+
+
         </div>
 
     </div>
