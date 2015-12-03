@@ -1,39 +1,27 @@
 <!doctype html>
 <html>
-<head>
-    <title>DOMS</title>
-    <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.2/css/bootstrap.min.css">
-    <link rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.min.css">
-    <style>
-        body        { padding-top:80px; word-wrap:break-word; }
-    </style>
-</head>
+<% include ./partials/head %>
 <body>
+<% include ./partials/navbar %>
 <div class="container">
 
-    <div class="page-header text-center">
-        <h1></span> Manage Orders</h1>
-        <a href="/logout" class="btn btn-default btn-sm">Logout</a>
-    </div>
 
     <div class="row">
 
         <!-- LOCAL INFORMATION -->
-        <div class="col-sm-6">
-            <div class="well">
-                <h3><span class="fa fa-user"></span> Your Orders</h3>
-                    <% for (var i = 0; i < data.length; i++) { %>
-                    <p>
-                        <strong>Order ID</strong>: <%= data[i].oid %><br>
-                        <strong>Order Description</strong>: <%= data[i].description %><br>
-                        <a href="/profile/orders/<%= data[i].oid %>"> View order    </a>      |
-                        <a href="/profile/orders/<%= data[i].oid %>/delete"> Delete order   </a>
-                    </p>
-                    <% } %>
-
-            </div>
-            <h3><a href="./newOrder">Create new order</a></h3>
-            <p><a href="/profile">Back to Profile</a></p>
+        <div class="col-sm-8 col-sm-offset-2 text-center">
+        <table class="table table-bordered">
+            <h1>Your Orders</h1>
+            <% for (var i = 0; i < data.length; i++) { %>
+            <tr>
+                <td><strong>Order ID</strong>: <%= data[i].oid %></td>
+                <td><strong>Order Description</strong>: <%= data[i].description %></td>
+                <td><a href="/profile/orders/<%= data[i].oid %>"> View order    </a>  </td>
+                <td><a href="/profile/orders/<%= data[i].oid %>/delete"> Delete order   </a></td>
+            </tr>
+            <% } %>
+        </table>
+            <h3><a href="./newOrder" class="btn btn-success">Create new order</a></h3>
             <!-- <p>Or go <a href="/">Home</a>.</p> -->
         </div>
 

@@ -5,21 +5,23 @@
     <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.2/css/bootstrap.min.css">
     <link rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.min.css">
     <style>
-        body        { padding-top:80px; word-wrap:break-word; }
+
     </style>
 </head>
 <body>
+<% include ./partials/navbar %>
 <div class="container">
+
 
     <div class="page-header text-center">
         <h1></span>  <%= user.storename %></h1>
-        <a href="/logout" class="btn btn-default btn-sm">Logout</a>
+
     </div>
 
     <div class="row">
 
         <!-- LOCAL INFORMATION -->
-        <div class="col-sm-6">
+        <div class="col-sm-6 col-sm-offset-3">
             <div class="well">
                 <h3><span class="fa fa-user"></span> My Information</h3>
                 <p>
@@ -42,8 +44,25 @@
     <div class="row">
 
         <!-- LOCAL INFORMATION -->
-        <div class="col-sm-6">
-            <div class="well">
+        <div class="col-sm-6 col-sm-offset-3">
+        <table class="table table-bordered">
+            <tr><h3>Assigned Orders<h3></tr>
+
+            <% for (var i = 0; i < orders.length; i++) { %>
+            <tr>
+                <td>
+                    <strong>Order ID</strong>: <a href="./profile/orders/<%= orders[i].oid %>"> <%= orders[i].oid %> </a>
+                </td>
+                <td>
+                    <strong>Order Description</strong>: <%= orders[i].description %>
+                </td>
+                <td>
+                    <strong>Driver ID</strong>: <a href="./profile/drivers/<%= orders[i].did %>"> <%= orders[i].did %> </a>
+                </td>
+            </tr>
+            <% } %>
+        </table>
+            <!-- <div class="well">
                 <h3><span class="fa fa-user"></span> Assigned Orders</h3>
                     <% for (var i = 0; i < orders.length; i++) { %>
                     <p>
@@ -52,7 +71,7 @@
                         <strong>Driver ID</strong>: <a href="./profile/drivers/<%= orders[i].did %>"> <%= orders[i].did %> </a>
                     </p>
                     <% } %>
-            </div>
+            </div> -->
 
         </div>
 

@@ -1,41 +1,29 @@
 <!doctype html>
 <html>
-<head>
-    <title>DOMS</title>
-    <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.2/css/bootstrap.min.css">
-    <link rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.min.css">
-    <style>
-        body        { padding-top:80px; word-wrap:break-word; }
-    </style>
-</head>
+<% include ./partials/head %>
 <body>
+<% include ./partials/navbar %>
 <div class="container">
 
-    <div class="page-header text-center">
-        <h1></span> Manage Drivers</h1>
-        <a href="/logout" class="btn btn-default btn-sm">Logout</a>
-    </div>
 
     <div class="row">
 
         <!-- LOCAL INFORMATION -->
-        <div class="col-sm-6">
-            <div class="well">
-                <h3><span class="fa fa-user"></span> Your Drivers</h3>
-                    <% for (var i = 0; i < data.length; i++) { %>
-                    <p>
-                        <strong>Driver ID</strong>: <%= data[i].did %><br>
-                        <strong>Driver Name</strong>: <%= data[i].name %><br>
-                        <a href="./drivers/<%= data[i].did %>"> View Driver Information</a> |
-                        <a href="./drivers/<%= data[i].did %>/delete"> Delete Driver</a>
-                    </p>
-                    <% } %>
 
-            </div>
+        <div class="col-sm-8 col-sm-offset-2 center">
+
+            <table class="table table-bordered">
+                <h1>Your Drivers</h1>
+                <% for (var i = 0; i < data.length; i++) { %>
+                <tr>
+                    <td><strong>Driver ID</strong>: <%= data[i].did %></td>
+                    <td><strong>Driver Name</strong>: <%= data[i].name %><br></td>
+                    <td><a href="./drivers/<%= data[i].did %>"> View Driver Information</a> </td>
+                    <td><a href="./drivers/<%= data[i].did %>/delete"> Delete Driver</a></td>
+                </tr>
+                <% } %>
+            </table>
           <!--  <h3><a href="./newDriver">Add Driver</a></h3>-->
-
-            <p><a href="/profile">Back to Profile</a></p>
-            <p>Or go <a href="/">Home</a>.</p>
         </div>
 
     </div>
