@@ -2,6 +2,14 @@
 <html>
 <head>
     <title>DOMS</title>
+
+    <style>
+    body {
+      height: 100%;
+      background-image: url("https://source.unsplash.com/WaOku7Biz2k/1600x900")
+    }
+    </style>
+
     <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.2/css/bootstrap.min.css">
     <link rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.min.css">
     <style>
@@ -9,73 +17,90 @@
     </style>
 </head>
 <body>
+
+
+
 <% include ./partials/navbar %>
 <div class="container">
 
-
+    <div class="container">
     <div class="page-header text-center">
-        <h1></span>  <%= user.storename %></h1>
+        <h1 style="color: white;"></span>  <%= user.storename %></h1>
 
     </div>
+      <div class="row">
 
-    <div class="row">
+          <!-- LOCAL INFORMATION -->
+          <div class="col-sm-6 col-sm-offset-3">
+                  <div class="panel" style="padding: 2em; background-color: rgba(255, 255, 255, 0.8);">
+                    <h3><span class="fa fa-user"></span> My Information</h3>
+                    <table class="table table-bordered">
+                        <tr style="border-top: 2px solid black;">
+                          <td><strong>Store Name</strong>: <%= user.storename %><br></td>
+                        </tr>
+                        <tr style="border-top: 2px solid black;">
+                          <td><strong>Store Email</strong>: <%= user.storeemail %><br></td>
+                        </tr>
+                        <tr style="border-top: 2px solid black;">
+                          <td><strong>Store Phone</strong>: <%= user.storephone %><br></td>
+                        </tr>
+                        <tr style="border-top: 2px solid black;">
+                          <td><strong>Store Address</strong>: <%= user.storeaddress %><br></td>
+                        </tr>
 
-        <!-- LOCAL INFORMATION -->
-        <div class="col-sm-6 col-sm-offset-3">
-            <div class="well">
-                <h3><span class="fa fa-user"></span> My Information</h3>
-                <p>
-                    <strong>Store ID</strong>: <%= user.id %><br>
-                    <strong>Username</strong>: <%= user.username %><br>
-                    <strong>Store Name</strong>: <%= user.storename %><br>
-                    <strong>Store Email</strong>: <%= user.storeemail %><br>
-                    <strong>Store Phone</strong>: <%= user.storephone %><br>
-                    <strong>Store Address</strong>: <%= user.storeaddress %><br>
-                </p>
-                <p> <a class="btn btn-default btn-lg" href="profile/drivers">  Manage Drivers  </a>
-                    <a class="btn btn-default btn-lg" href="profile/orders">  Manage Orders  </a>
-                </p>
+                    </table>
+                    <p> <a class="btn btn-default btn-lg" href="profile/drivers">  Manage Drivers  </a>
+                        <a class="btn btn-default btn-lg" href="profile/orders">  Manage Orders  </a>
+                    </p>
+                  </div>
+
+
+
+          </div>
+
+      </div>
+      <div class="row">
+
+          <!-- LOCAL INFORMATION -->
+          <div class="col-sm-6 col-sm-offset-3">
+            <div class="panel" style="padding: 1em; opacity: 0.8;">
+              <table class="table table-bordered">
+                  <tr><h3>Assigned Orders<h3></tr>
+
+                  <% for (var i = 0; i < orders.length; i++) { %>
+                  <tr style="border-top: 2px solid black;">
+                      <td>
+                          <strong>Order ID</strong>: <a href="./profile/orders/<%= orders[i].oid %>"> <%= orders[i].oid %> </a>
+                      </td>
+                      <td>
+                          <strong>Order Description</strong>: <%= orders[i].description %>
+                      </td>
+                      <td>
+                          <strong>Driver ID</strong>: <a href="./profile/drivers/<%= orders[i].did %>"> <%= orders[i].did %> </a>
+                      </td>
+                  </tr>
+                  <% } %>
+              </table>
             </div>
 
-        </div>
+              <!-- <div class="well">
+                  <h3><span class="fa fa-user"></span> Assigned Orders</h3>
+                      <% for (var i = 0; i < orders.length; i++) { %>
+                      <p>
+                          <strong>Order ID</strong>: <a href="./profile/orders/<%= orders[i].oid %>"> <%= orders[i].oid %> </a><br>
+                          <strong>Order Description</strong>: <%= orders[i].description %><br>
+                          <strong>Driver ID</strong>: <a href="./profile/drivers/<%= orders[i].did %>"> <%= orders[i].did %> </a>
+                      </p>
+                      <% } %>
+              </div> -->
 
+          </div>
+
+      </div>
     </div>
 
-    <div class="row">
 
-        <!-- LOCAL INFORMATION -->
-        <div class="col-sm-8 col-sm-offset-2">
-        <table class="table table-bordered">
-            <tr><h3>Assigned Orders<h3></tr>
 
-            <% for (var i = 0; i < orders.length; i++) { %>
-            <tr>
-                <td>
-                    <strong>Order ID</strong>: <a href="./profile/orders/<%= orders[i].oid %>"> <%= orders[i].oid %> </a>
-                </td>
-                <td>
-                    <strong>Order Description</strong>: <%= orders[i].description %>
-                </td>
-                <td>
-                    <strong>Driver ID</strong>: <a href="./profile/drivers/<%= orders[i].did %>"> <%= orders[i].did %> </a>
-                </td>
-            </tr>
-            <% } %>
-        </table>
-            <!-- <div class="well">
-                <h3><span class="fa fa-user"></span> Assigned Orders</h3>
-                    <% for (var i = 0; i < orders.length; i++) { %>
-                    <p>
-                        <strong>Order ID</strong>: <a href="./profile/orders/<%= orders[i].oid %>"> <%= orders[i].oid %> </a><br>
-                        <strong>Order Description</strong>: <%= orders[i].description %><br>
-                        <strong>Driver ID</strong>: <a href="./profile/drivers/<%= orders[i].did %>"> <%= orders[i].did %> </a>
-                    </p>
-                    <% } %>
-            </div> -->
-
-        </div>
-
-    </div>
 
 </div>
 </body>

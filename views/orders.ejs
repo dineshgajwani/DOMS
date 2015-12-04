@@ -1,6 +1,12 @@
 <!doctype html>
 <html>
 <% include ./partials/head %>
+<style>
+body {
+  height: 100%;
+  background-image: url("https://source.unsplash.com/qJ0zGkrE1Zg/1600x900")
+}
+</style>
 <body>
 <% include ./partials/navbar %>
 <div class="container">
@@ -10,10 +16,14 @@
 
         <!-- LOCAL INFORMATION -->
         <div class="col-sm-8 col-sm-offset-2 text-center">
-        <table class="table table-bordered">
+          <div class="panel" style="padding: 2em; background-color: rgba(255, 255, 255, 0.7);">
             <h1>Your Orders</h1>
+
+        <table class="table">
+
+
             <% for (var i = 0; i < data.length; i++) { %>
-            <tr>
+            <tr style="border-top: 2px solid black;">
                 <td><strong>Order ID</strong>: <%= data[i].oid %></td>
                 <td><strong>Order Description</strong>: <%= data[i].description %></td>
                 <td><a href="/profile/orders/<%= data[i].oid %>"> View order    </a>  </td>
@@ -21,9 +31,12 @@
             </tr>
             <% } %>
         </table>
-            <h3><a href="./newOrder" class="btn btn-success">Create new order</a></h3>
+
             <!-- <p>Or go <a href="/">Home</a>.</p> -->
         </div>
+          <h3><a href="./newOrder" class="btn btn-success">Create new order</a></h3>
+      </div>
+
 
     </div>
 

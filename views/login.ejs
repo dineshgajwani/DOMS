@@ -3,45 +3,59 @@
 <html>
 <head>
     <title>DOMS</title>
+    <style>
+        html, body {
+            height: 100%;
+        }
+
+        .login-bg {
+          height: 100%;
+          background-image: url('https://source.unsplash.com/y3aP9oo9Pjc');
+          -moz-background-size: cover;
+          -webkit-background-size: cover;
+          -o-background-size: cover;
+          background-size: cover;
+        }
+    </style>
     <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.2/css/bootstrap.min.css"> <!-- load bootstrap css -->
     <link rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.min.css"> <!-- load fontawesome -->
-    <style>
-        body        { padding-top:80px; }
-    </style>
 </head>
 <body>
-<div class="container">
 
-<div class="col-sm-6 col-sm-offset-3">
+<div class="login-bg">
+    <div class="container">
 
-    <h1><span class="fa fa-sign-in"></span> Login</h1>
+    <div class="col-sm-6 col-sm-offset-3">
 
-    <!-- show any messages that come back with authentication -->
-    <% if (message.length > 0) { %>
-        <div class="alert alert-danger"><%= message %></div>
-    <% } %>
+        <h1 style="color: white;"><span class="fa fa-sign-in"></span> Login</h1>
 
-    <!-- LOGIN FORM -->
-    <form action="/login" method="post">
-        <div class="form-group">
-            <label>Username</label>
-            <input type="text" class="form-control" name="username">
-        </div>
-        <div class="form-group">
-            <label>Password</label>
-            <input type="password" class="form-control" name="password">
-        </div>
+        <!-- show any messages that come back with authentication -->
+        <% if (message.length > 0) { %>
+            <div class="alert alert-danger"><%= message %></div>
+        <% } %>
 
-        <button type="submit" class="btn btn-warning btn-lg">Login</button>
-    </form>
+        <!-- LOGIN FORM -->
+        <form action="/login" method="post">
+            <div class="form-group">
+                <label style="color: white;">Username</label>
+                <input type="text" class="form-control" name="username">
+            </div>
+            <div class="form-group">
+                <label style="color: white;">Password</label>
+                <input type="password" class="form-control" name="password">
+            </div>
 
-    <hr>
+            <button type="submit" class="btn btn-warning btn-lg">Login</button>
+        </form>
 
-    <p>Need an account? <a href="/signup">Signup</a></p>
-    <p>Or go <a href="/">home</a>.</p>
+        <hr>
 
-</div>
+        <p style="color: white;">Need an account? <a href="/signup">Signup</a></p>
+        <p style="color: white;">Or go <a href="/">home</a>.</p>
 
+    </div>
+
+    </div>
 </div>
 </body>
 </html>

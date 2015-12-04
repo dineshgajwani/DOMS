@@ -2,6 +2,12 @@
 <html>
 <% include ./partials/head %>
 <body>
+<style>
+body {
+  height: 100%;
+  background-image: url("https://source.unsplash.com/Te3V0r0fYIo/1600x900")
+}
+</style>
 <% include ./partials/navbar %>
 <div class="container">
 
@@ -10,12 +16,13 @@
 
         <!-- LOCAL INFORMATION -->
 
-        <div class="col-sm-8 col-sm-offset-2 text-center">
+        <div class="col-sm-8 col-sm-offset-2 center">
+          <div class="panel" style="padding: 2em; background-color: rgba(255, 255, 255, 0.8);">
 
             <table class="table table-bordered">
                 <h1>Your Drivers</h1>
                 <% for (var i = 0; i < data.length; i++) { %>
-                <tr>
+                <tr style="border-top: 2px solid black;">
                     <td><strong>Driver ID</strong>: <%= data[i].did %></td>
                     <td><strong>Driver Name</strong>: <%= data[i].name %><br></td>
                     <td><a href="./drivers/<%= data[i].did %>"> View Driver Information</a> </td>
@@ -23,8 +30,9 @@
                 </tr>
                 <% } %>
             </table>
-
+          <!--  <h3><a href="./newDriver">Add Driver</a></h3>-->
         </div>
+      </div>
 
     </div>
 
